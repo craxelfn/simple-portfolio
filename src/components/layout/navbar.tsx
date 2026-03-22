@@ -47,32 +47,53 @@ export function Navbar() {
   return (
     <header
       className={cn(
-        "fixed inset-x-0 top-0 z-50 border-b border-transparent transition-colors",
-        scrolled && "border-border/80 bg-background/80 backdrop-blur-md",
+        "fixed inset-x-0 top-0 z-50 transition-[background,border-color,box-shadow] duration-300",
+        scrolled
+          ? "border-b border-border/70 bg-background/85 shadow-sm backdrop-blur-xl md:py-1"
+          : "border-b border-transparent bg-background/40 backdrop-blur-md",
       )}
     >
       <div className="mx-auto flex h-[4.75rem] max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link
           href="/#hero"
-          className="text-sm font-semibold tracking-tight text-foreground transition-opacity hover:opacity-80"
+          className="group flex items-center gap-2 text-sm font-semibold tracking-tight text-foreground"
         >
-          {siteConfig.name.split(" ")[0]}
-          <span className="text-muted-foreground">.</span>
+          <span className="flex size-8 items-center justify-center rounded-lg bg-gradient-to-br from-sky-500/20 to-cyan-500/10 text-xs font-bold text-sky-600 ring-1 ring-sky-500/25 transition group-hover:ring-sky-500/40 dark:text-sky-400">
+            {siteConfig.name
+              .split(" ")
+              .map((w) => w[0])
+              .join("")
+              .slice(0, 2)}
+          </span>
+          <span className="transition-opacity group-hover:opacity-90">
+            {siteConfig.name.split(" ")[0]}
+            <span className="text-muted-foreground">.</span>
+          </span>
         </Link>
 
-        <nav className="hidden items-center gap-1 md:flex" aria-label="Primary">
+        <nav
+          className="hidden items-center gap-0.5 rounded-full border border-border/60 bg-muted/30 p-1 shadow-inner backdrop-blur md:flex"
+          aria-label="Primary"
+        >
           {navItems.map((item) => (
             <SectionLink
               key={item.id}
               to={item.id}
               className={cn(
-                "rounded-md px-3 py-2 text-sm transition-colors",
+                "relative isolate rounded-full px-3.5 py-2 text-sm font-medium transition-colors",
                 active === item.id
                   ? "text-foreground"
                   : "text-muted-foreground hover:text-foreground",
               )}
             >
-              {item.label}
+              {active === item.id ? (
+                <motion.span
+                  layoutId="nav-pill"
+                  className="absolute inset-0 z-0 rounded-full border border-border/50 bg-background shadow-sm"
+                  transition={{ type: "spring", stiffness: 420, damping: 32 }}
+                />
+              ) : null}
+              <span className="relative z-10">{item.label}</span>
             </SectionLink>
           ))}
         </nav>
@@ -109,8 +130,10 @@ export function Navbar() {
                   to={item.id}
                   onNavigate={() => setOpen(false)}
                   className={cn(
-                    "rounded-lg px-3 py-3 text-left text-sm font-medium transition-colors",
-                    active === item.id ? "text-foreground" : "text-foreground/90",
+                    "rounded-xl px-3 py-3 text-left text-sm font-medium transition-colors",
+                    active === item.id
+                      ? "bg-muted text-foreground"
+                      : "text-foreground/90 hover:bg-muted/60",
                   )}
                 >
                   {item.label}

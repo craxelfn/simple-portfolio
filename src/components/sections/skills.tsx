@@ -29,9 +29,7 @@ export function Skills() {
           <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
             Technical skills
           </h2>
-          <p className="mt-4 max-w-2xl text-muted-foreground">
-            Technologies from my CV — each item uses its official brand icon where available.
-          </p>
+          
         </ScrollReveal>
 
         <motion.div

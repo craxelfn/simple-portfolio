@@ -23,9 +23,6 @@ export function Projects() {
           <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
             Selected work
           </h2>
-          <p className="mt-4 max-w-2xl text-muted-foreground">
-            Projects and stacks as listed on my CV.
-          </p>
         </ScrollReveal>
 
         <motion.div

@@ -1,13 +1,13 @@
 "use client";
 
 import { Moon, Sun } from "lucide-react";
-import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 
+import { useTheme } from "@/components/providers/theme-provider";
 import { Button } from "@/components/ui/button";
 
 export function ThemeToggle() {
-  const { theme, setTheme, resolvedTheme } = useTheme();
+  const { resolvedTheme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -22,7 +22,7 @@ export function ThemeToggle() {
     );
   }
 
-  const isDark = resolvedTheme === "dark" || theme === "dark";
+  const isDark = resolvedTheme === "dark";
 
   return (
     <Button

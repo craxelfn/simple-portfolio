@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: siteUrl,
     siteName: "Oussama Lakrafi",
-    title: "Oussama Lakrafi — Software Engineer | Full Stack | Cloud & DevOps",
+    title: "Oussama Lakrafi — Software Engineer | Data engineer | Cloud & DevOps",
     description:
       "Computer Science engineering student at ENSA Berrechid. Full stack, cloud, and DevOps.",
   },
@@ -66,6 +66,8 @@ export const viewport: Viewport = {
   ],
 };
 
+const themeInitScript = `(function(){try{var t=localStorage.getItem('theme');var m=window.matchMedia('(prefers-color-scheme: dark)');var dark=t==='dark'||(t!=='light'&&m.matches);document.documentElement.classList.toggle('dark',dark);document.documentElement.style.colorScheme=dark?'dark':'light';}catch(e){}})();`;
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -75,8 +77,10 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} min-h-screen flex flex-col font-sans`}
+        suppressHydrationWarning
       >
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+        <ThemeProvider>
           <LenisProvider>{children}</LenisProvider>
         </ThemeProvider>
       </body>

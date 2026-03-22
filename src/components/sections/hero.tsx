@@ -120,31 +120,7 @@ export function Hero() {
             })}
           </motion.div>
 
-          <motion.div
-            variants={{
-              hidden: { opacity: 0, y: 14 },
-              visible: {
-                opacity: 1,
-                y: 0,
-                transition: { duration: 0.45, delay: 0.3, ease: [0.22, 1, 0.36, 1] },
-              },
-            }}
-            className="flex flex-wrap gap-3 pt-2"
-          >
-            <SectionLink
-              to="projects"
-              className={cn(buttonVariants(), "gap-2 rounded-lg px-6")}
-            >
-              View work
-              <ArrowRight className="size-4" />
-            </SectionLink>
-            <SectionLink
-              to="contact"
-              className={cn(buttonVariants({ variant: "outline" }), "rounded-lg px-6")}
-            >
-              Contact
-            </SectionLink>
-          </motion.div>
+          
         </motion.div>
       </div>
     </section>

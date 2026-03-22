@@ -1,12 +1,17 @@
+"use client";
+
 import type { IconType } from "react-icons/lib";
-import { FaAws } from "react-icons/fa6";
+import { FaAws, FaMicrosoft } from "react-icons/fa6";
 import {
   SiAnsible,
+  SiApacheairflow,
   SiApachekafka,
+  SiApachespark,
   SiArgo,
   SiBootstrap,
   SiC,
   SiCss,
+  SiDbt,
   SiDocker,
   SiExpress,
   SiGit,
@@ -30,12 +35,19 @@ import {
   SiPython,
   SiReact,
   SiRedis,
+  SiSnowflake,
   SiSpringboot,
   SiTailwindcss,
   SiTensorflow,
   SiTerraform,
   SiTypescript,
   SiWebrtc,
+  SiApachecassandra,
+  SiFastapi,
+  SiJsonwebtokens,
+  SiMui,
+  SiOpencv,
+  SiSocketdotio,
 } from "react-icons/si";
 import { TbBrandReactNative } from "react-icons/tb";
 
@@ -75,12 +87,80 @@ export const TECH_ICONS: Record<string, IconType> = {
   GitHub: SiGithub,
   "Machine Learning": SiTensorflow,
   "Generative AI": SiOpenai,
+  Spark: SiApachespark,
+  Snowflake: SiSnowflake,
+  "Microsoft Fabric": FaMicrosoft,
+  dbt: SiDbt,
+  Airflow: SiApacheairflow,
   WebRTC: SiWebrtc,
   RNN: SiTensorflow,
   Prometheus: SiPrometheus,
   Grafana: SiGrafana,
   Redis: SiRedis,
   "AWS (S3, Glue, Athena)": FaAws,
+  JWT: SiJsonwebtokens,
+  "Material UI": SiMui,
+  Express: SiExpress,
+  "Socket.IO": SiSocketdotio,
+  FastAPI: SiFastapi,
+  "Computer Vision": SiOpencv,
+  "Apache Airflow": SiApacheairflow,
+  "Apache Kafka": SiApachekafka,
+  "Apache Spark": SiApachespark,
+  "Apache Cassandra": SiApachecassandra,
+  Cassandra: SiApachecassandra,
+  "Docker Compose": SiDocker,
+};
+
+export const TECH_COLORS: Record<string, string> = {
+  Java: "#ED8B00",
+  JavaScript: "#F7DF1E",
+  Python: "#3776AB",
+  C: "#A8B9CC",
+  PHP: "#777BB4",
+  React: "#61DAFB",
+  "React Native": "#61DAFB",
+  TypeScript: "#3178C6",
+  "Tailwind CSS": "#06B6D4",
+  HTML: "#E34F26",
+  CSS: "#1572B6",
+  Bootstrap: "#7952B3",
+  "Node.js": "#339933",
+  "Spring Boot": "#6DB33F",
+  MySQL: "#4479A1",
+  PostgreSQL: "#4169E1",
+  MongoDB: "#47A248",
+  Docker: "#2496ED",
+  Kubernetes: "#326CE5",
+  ArgoCD: "#EF7B4D",
+  "GitLab CI/CD": "#FC6D26",
+  Jenkins: "#D24939",
+  Terraform: "#844FBA",
+  AWS: "#FF9900",
+  Helm: "#0F1689",
+  Ansible: "#EE0000",
+  Git: "#F05032",
+  "Machine Learning": "#FF6F00",
+  "Generative AI": "#412991",
+  Spark: "#E25A1C",
+  Snowflake: "#29B5E8",
+  "Microsoft Fabric": "#00A4EF",
+  dbt: "#FF694B",
+  Airflow: "#017CEE",
+  WebRTC: "#333333",
+  RNN: "#FF6F00",
+  Prometheus: "#E6522C",
+  Grafana: "#F46800",
+  Redis: "#DC382D",
+  "AWS (S3, Glue, Athena)": "#FF9900",
+  "Material UI": "#007FFF",
+  FastAPI: "#009688",
+  "Computer Vision": "#5C3EE8",
+  "Apache Airflow": "#017CEE",
+  "Apache Spark": "#E25A1C",
+  "Apache Cassandra": "#1287B1",
+  Cassandra: "#1287B1",
+  "Docker Compose": "#2496ED",
 };
 
 export function TechLogo({
@@ -104,5 +184,5 @@ export function TechLogo({
       </span>
     );
   }
-  return <Icon className={className} aria-hidden />;
+  return <Icon className={className} color={TECH_COLORS[name]} aria-hidden />;
 }

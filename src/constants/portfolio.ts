@@ -14,11 +14,10 @@ export const siteConfig = {
 } as const;
 
 export const aboutContent = {
-  paragraphs: [
+  summary:
     "Computer Science engineering student at the National School of Applied Sciences in Berrechid, specializing in software development and cloud/DevOps. Seeking a final-year project internship (PFE) to apply skills in full-stack development, DevOps, and cloud engineering while contributing to innovative projects.",
-    "Languages: English (Fluent), French (Fluent), Arabic (Native).",
-    "Member of Google Developer Student Club ENSA Berrechid (2024–Present).",
-  ],
+  languages: "English (Fluent), French (Fluent), Arabic (Native).",
+  membership: "+300 LeetCode problems solved & +88 GitHub repository projects.",
 };
 
 export type SkillItem = {
@@ -52,6 +51,8 @@ export const skills: SkillItem[] = [
   { name: "MySQL", category: "Databases" },
   { name: "PostgreSQL", category: "Databases" },
   { name: "MongoDB", category: "Databases" },
+  { name: "Redis", category: "Databases" },
+  { name: "Cassandra", category: "Databases" },
   { name: "Docker", category: "DevOps & Cloud" },
   { name: "Kubernetes", category: "DevOps & Cloud" },
   { name: "ArgoCD", category: "DevOps & Cloud" },
@@ -60,12 +61,17 @@ export const skills: SkillItem[] = [
   { name: "Terraform", category: "DevOps & Cloud" },
   { name: "AWS", category: "DevOps & Cloud" },
   { name: "Helm", category: "DevOps & Cloud" },
-  { name: "Kafka", category: "DevOps & Cloud" },
   { name: "Ansible", category: "DevOps & Cloud" },
   { name: "Git", category: "DevOps & Cloud" },
   { name: "GitHub", category: "DevOps & Cloud" },
   { name: "Machine Learning", category: "AI & Data" },
   { name: "Generative AI", category: "AI & Data" },
+  { name: "Spark", category: "AI & Data" },
+  { name: "Snowflake", category: "AI & Data" },
+  { name: "Microsoft Fabric", category: "AI & Data" },
+  { name: "dbt", category: "AI & Data" },
+  { name: "Airflow", category: "AI & Data" },
+  { name: "Kafka", category: "AI & Data" },
 ];
 
 export type ExperienceItem = {
@@ -175,6 +181,64 @@ export const projects: ProjectItem[] = [
       "AWS (S3, Glue, Athena)",
       "Redis",
       "PostgreSQL",
+    ],
+  },
+  {
+    id: "p4",
+    title: "Real-Time Auction Platform",
+    description:
+      "Developed a full-stack auction platform for real-time bidding. Implemented JWT authentication, WebSocket communication with STOMP.js, live notifications, and interactive charts for bid trend analysis.",
+    technologies: [
+      "Spring Boot",
+      "Next.js",
+      "PostgreSQL",
+      "STOMP.js",
+      "JWT",
+      "Material UI",
+      "Tailwind CSS",
+    ],
+  },
+  {
+    id: "p5",
+    title: "Employee Management System",
+    description:
+      "Built a full-stack system with role-based JWT authentication. Features include employee/task management, department assignment, WebRTC for video calls, and Socket.IO for instant messaging.",
+    technologies: [
+      "React",
+      "WebRTC",
+      "Node.js",
+      "Express",
+      "Socket.IO",
+      "MongoDB",
+      "JWT",
+      "Bootstrap",
+    ],
+  },
+  {
+    id: "p6",
+    title: "Python Object Detection Backend",
+    description:
+      "FastAPI backend server running TensorFlow object detection in a separate process. Processes video frames received via HTTP POST and returns bounding boxes, ensuring smooth main thread UI performance.",
+    technologies: [
+      "Python",
+      "FastAPI",
+      "TensorFlow",
+      "Computer Vision",
+    ],
+  },
+  {
+    id: "p7",
+    title: "Real-Time Data Streaming Pipeline",
+    description:
+      "End-to-end containerized data streaming pipeline using Airflow for data ingestion to Kafka, Spark Structured Streaming for processing, and Cassandra for storage. Monitored via custom dashboards.",
+    technologies: [
+      "Apache Airflow",
+      "Apache Kafka",
+      "Apache Spark",
+      "Apache Cassandra",
+      "PostgreSQL",
+      "Docker Compose",
+      "Python",
     ],
   },
 ];
