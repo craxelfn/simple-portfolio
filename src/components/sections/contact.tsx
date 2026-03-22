@@ -27,11 +27,13 @@ export function Contact() {
       return;
     }
     setStatus("loading");
+    const form = e.currentTarget;
     try {
-      await emailjs.sendForm(serviceId, templateId, e.currentTarget, { publicKey });
+      await emailjs.sendForm(serviceId, templateId, form, { publicKey });
       setStatus("success");
-      e.currentTarget.reset();
-    } catch {
+      form.reset();
+    } catch (error) {
+      console.error("EmailJS Error:", error);
       setStatus("error");
     }
   }
@@ -85,13 +87,13 @@ export function Contact() {
             >
               <div className="space-y-2">
                 <Label htmlFor="name">Name</Label>
-                <Input id="name" name="user_name" required placeholder="Your name" autoComplete="name" />
+                <Input id="name" name="name" required placeholder="Your name" autoComplete="name" />
               </div>
               <div className="space-y-2">
                 <Label htmlFor="email">Email</Label>
                 <Input
                   id="email"
-                  name="user_email"
+                  name="email"
                   type="email"
                   required
                   placeholder="you@example.com"
