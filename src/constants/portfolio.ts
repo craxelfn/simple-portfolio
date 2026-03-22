@@ -1,34 +1,35 @@
 export const siteConfig = {
   name: "Oussama Lakrafi",
-  title: "Software Engineer | Full Stack | Cloud & DevOps",
-  tagline:
-    "Computer Science engineering student at the National School of Applied Sciences in Berrechid, specializing in software development and cloud/DevOps. Seeking a final-year project internship (PFE) to apply skills in full-stack development, DevOps, and cloud engineering while contributing to innovative projects.",
+  title: "Software Engineer | Data Engineer | Cloud & DevOps",
+  tagline: "",
   email: "oussamaa1lakrafi@gmail.com",
   phoneDisplay: "0605363212",
   phoneTel: "+212605363212",
   location: "Casablanca, Morocco",
   contactLinks: [
     { href: "mailto:oussamaa1lakrafi@gmail.com", label: "Email" },
-    { href: "tel:+212605363212", label: "Phone" },
+    { href: "https://www.linkedin.com/in/oussama-lakrafi-118805295/", label: "LinkedIn", target: "_blank" },
+    { href: "https://github.com/craxelfn/", label: "GitHub", target: "_blank" },
+    { href: "/oussama-lakrafi-cv.pdf", label: "Download CV" },
   ] as const,
 } as const;
 
 export const aboutContent = {
   summary:
-    "Computer Science engineering student at the National School of Applied Sciences in Berrechid, specializing in software development and cloud/DevOps. Seeking a final-year project internship (PFE) to apply skills in full-stack development, DevOps, and cloud engineering while contributing to innovative projects.",
-  languages: "English (Fluent), French (Fluent), Arabic (Native).",
+    "Computer Science engineering student at the National School of Applied Sciences in Berrechid, specializing in software development and Cloud/DevOps.",
+  languages: "English, French, Arabic.",
   membership: "+300 LeetCode problems solved & +88 GitHub repository projects.",
 };
 
 export type SkillItem = {
   name: string;
   category:
-    | "Programming Languages"
-    | "Frontend"
-    | "Backend"
-    | "Databases"
-    | "DevOps & Cloud"
-    | "AI & Data";
+  | "Programming Languages"
+  | "Frontend"
+  | "Backend"
+  | "Databases"
+  | "DevOps & Cloud"
+  | "AI & Data";
 };
 
 export const skills: SkillItem[] = [

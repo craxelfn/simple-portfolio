@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Mail, Phone } from "lucide-react";
+import { ArrowRight, Download, Github, Linkedin, Mail, Phone } from "lucide-react";
 import dynamic from "next/dynamic";
 
 import { siteConfig } from "@/constants/portfolio";
@@ -18,6 +18,9 @@ const Hero3D = dynamic(
 const contactIcons = {
   Email: Mail,
   Phone: Phone,
+  LinkedIn: Linkedin,
+  GitHub: Github,
+  "Download CV": Download,
 } as const;
 
 export function Hero() {
@@ -76,19 +79,7 @@ export function Hero() {
             >
               {siteConfig.title}
             </motion.p>
-            <motion.p
-              variants={{
-                hidden: { opacity: 0, y: 18 },
-                visible: {
-                  opacity: 1,
-                  y: 0,
-                  transition: { duration: 0.5, delay: 0.18, ease: [0.22, 1, 0.36, 1] },
-                },
-              }}
-              className="max-w-xl text-base leading-relaxed text-muted-foreground"
-            >
-              {siteConfig.tagline}
-            </motion.p>
+
           </div>
 
           <motion.div
@@ -111,10 +102,17 @@ export function Hero() {
                 <a
                   key={link.label}
                   href={link.href}
-                  className="inline-flex items-center gap-2 rounded-lg border border-border bg-background/60 px-4 py-2.5 text-sm font-medium text-muted-foreground backdrop-blur transition-colors hover:border-foreground/20 hover:text-foreground"
+                  {...("target" in link ? { target: link.target, rel: "noopener noreferrer" } : {})}
+                  {...(link.label === "Download CV" ? { download: true } : {})}
+                  className={cn(
+                    "inline-flex items-center justify-center gap-2 rounded-lg border border-border bg-background/60 text-sm font-medium text-muted-foreground backdrop-blur transition-all duration-300 hover:border-foreground/20 hover:bg-muted hover:text-foreground hover:shadow-md",
+                    link.label === "Download CV" ? "px-4 py-2.5" : "size-10 hover:-translate-y-1 hover:scale-110"
+                  )}
+                  aria-label={link.label}
+                  title={link.label}
                 >
-                  <Icon className="size-4 shrink-0" aria-hidden />
-                  {link.label === "Phone" ? siteConfig.phoneDisplay : link.label}
+                  <Icon className={cn("shrink-0", link.label === "Download CV" ? "size-4" : "size-5")} aria-hidden />
+                  {link.label === "Download CV" && <span>{link.label}</span>}
                 </a>
               );
             })}
