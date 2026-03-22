@@ -52,7 +52,7 @@ export function Contact() {
               Get in touch
             </h2>
             <p className="mt-4 text-muted-foreground">
-              Seeking a final-year project internship (PFE). Reach out by email, phone, or the form
+              Looking for projects and collaborations. Reach out by email, phone, or the form
               below.
             </p>
             <p className="mt-6 text-sm text-muted-foreground">
