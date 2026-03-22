@@ -48,6 +48,9 @@ import {
   SiMui,
   SiOpencv,
   SiSocketdotio,
+  SiK6,
+  SiVercel,
+  SiMqtt,
 } from "react-icons/si";
 import { TbBrandReactNative } from "react-icons/tb";
 
@@ -110,6 +113,14 @@ export const TECH_ICONS: Record<string, IconType> = {
   "Apache Cassandra": SiApachecassandra,
   Cassandra: SiApachecassandra,
   "Docker Compose": SiDocker,
+  "AWS (CloudFormation, CloudWatch, X-Ray, EC2, ASG, ALB, VPC)": FaAws,
+  SQL: SiPostgresql,
+  "Next.js & React": SiNextdotjs,
+  Vercel: SiVercel,
+  "AWS (Kinesis, IoT Core, STS, DynamoDB, EC2)": FaAws,
+  MQTT: SiMqtt,
+  TensorFlow: SiTensorflow,
+  k6: SiK6,
 };
 
 export const TECH_COLORS: Record<string, string> = {
@@ -161,6 +172,12 @@ export const TECH_COLORS: Record<string, string> = {
   "Apache Cassandra": "#1287B1",
   Cassandra: "#1287B1",
   "Docker Compose": "#2496ED",
+  "AWS (CloudFormation, CloudWatch, X-Ray, EC2, ASG, ALB, VPC)": "#FF9900",
+  SQL: "#4169E1",
+  "AWS (Kinesis, IoT Core, STS, DynamoDB, EC2)": "#FF9900",
+  MQTT: "#660066",
+  TensorFlow: "#FF6F00",
+  k6: "#7D64FF",
 };
 
 export function TechLogo({

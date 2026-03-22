@@ -33,7 +33,10 @@ export function Certifications() {
           className="mt-12 grid gap-4 sm:grid-cols-2"
         >
           {certifications.map((c, i) => (
-            <motion.div
+            <motion.a
+              href={(c as any).href}
+              target="_blank"
+              rel="noopener noreferrer"
               key={c.id}
               variants={{
                 hidden: { opacity: 0, y: 18 },
@@ -43,16 +46,16 @@ export function Certifications() {
                   transition: { duration: 0.45, delay: i * 0.06, ease: [0.22, 1, 0.36, 1] },
                 },
               }}
-              className="flex gap-4 rounded-xl border border-border/80 bg-card/50 p-5 transition-colors hover:border-foreground/15"
+              className="group flex gap-4 rounded-xl border border-border/80 bg-card/50 p-5 transition-colors hover:border-foreground/20 hover:bg-muted/30"
             >
-              <div className="flex size-10 shrink-0 items-center justify-center rounded-lg border border-border bg-background">
-                <Award className="size-5 text-amber-500 dark:text-amber-400" />
+              <div className="flex size-10 shrink-0 items-center justify-center rounded-lg border border-border bg-background transition-colors group-hover:border-foreground/20">
+                <Award className="size-5 text-amber-500 transition-transform group-hover:scale-110 dark:text-amber-400" />
               </div>
-              <div>
-                <h3 className="font-semibold leading-snug">{c.name}</h3>
+              <div className="flex flex-col justify-center">
+                <h3 className="font-semibold leading-snug transition-colors group-hover:text-amber-600 dark:group-hover:text-amber-400">{c.name}</h3>
                 <p className="mt-1 text-sm text-muted-foreground">{c.issuer}</p>
               </div>
-            </motion.div>
+            </motion.a>
           ))}
         </motion.div>
       </div>

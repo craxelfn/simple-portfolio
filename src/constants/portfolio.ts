@@ -143,7 +143,7 @@ export const projects: ProjectItem[] = [
     id: "p1",
     title: "Healthcare Application",
     description:
-      "Microservices healthcare platform with video consultation and AI chatbot.",
+      "Architected a scalable microservices healthcare platform enabling real-time video consultations and AI-driven chatbot support. Implemented secure doctor verification, automated prescription generation with QR codes, and centralized authentication via Keycloak. Integrated Apache Kafka for event-driven notifications and RNN models to automate toxic feedback detection and content moderation.",
     technologies: [
       "Next.js",
       "Spring Boot",
@@ -159,7 +159,7 @@ export const projects: ProjectItem[] = [
   {
     id: "p2",
     title: "Three-Tier Web App Deployment with CI/CD and GitOps",
-    description: "",
+    description: "Provisioned a production-ready AWS EKS cluster using Terraform for Infrastructure as Code. Automated a full CI/CD pipeline featuring Jenkins for CI, SonarQube for static code analysis, and ArgoCD for GitOps-based CD. Integrated a complete monitoring stack using Prometheus and Grafana to ensure high observability and scalability of the three-tier application.",
     technologies: [
       "Jenkins",
       "Terraform",
@@ -174,7 +174,7 @@ export const projects: ProjectItem[] = [
   {
     id: "p3",
     title: "Real-Time Health Monitoring Platform",
-    description: "Microservices real-time health monitoring with analytics and alerts.",
+    description: "Designed a stateless microservices architecture using Kafka as a central event bus for real-time inter-service communication. Implemented specialized services for ML inference, batching, and alerting to process live patient vitals with sub-second latency. Optimized the stack using Redis for alert deduplication and built an analytics lakehouse with S3, Glue, and Athena, surfaced through a Next.js WebSocket dashboard.",
     technologies: [
       "Kafka",
       "Python",
@@ -217,18 +217,6 @@ export const projects: ProjectItem[] = [
   },
   {
     id: "p6",
-    title: "Python Object Detection Backend",
-    description:
-      "FastAPI backend server running TensorFlow object detection in a separate process. Processes video frames received via HTTP POST and returns bounding boxes, ensuring smooth main thread UI performance.",
-    technologies: [
-      "Python",
-      "FastAPI",
-      "TensorFlow",
-      "Computer Vision",
-    ],
-  },
-  {
-    id: "p7",
     title: "Real-Time Data Streaming Pipeline",
     description:
       "End-to-end containerized data streaming pipeline using Airflow for data ingestion to Kafka, Spark Structured Streaming for processing, and Cassandra for storage. Monitored via custom dashboards.",
@@ -240,6 +228,49 @@ export const projects: ProjectItem[] = [
       "PostgreSQL",
       "Docker Compose",
       "Python",
+    ],
+  },
+  {
+    id: "p7",
+    title: "PiBot Vision-Control System",
+    description:
+      "Developed a real-time IoT platform to remotely operate a smart car via a Next.js dashboard and AWS. Integrated WebRTC and Kinesis for low-latency video streaming, while managing car movement through IoT Core and MQTT. Implemented an EC2-hosted TensorFlow model for real-time object detection with live visualization and DynamoDB logging.",
+    technologies: [
+      "Next.js & React",
+      "Vercel",
+      "AWS (Kinesis, IoT Core, STS, DynamoDB, EC2)",
+      "Python",
+      "FastAPI",
+      "TensorFlow",
+      "WebRTC",
+      "MQTT",
+    ],
+  },
+
+  {
+    id: "p8",
+    title: "MasterProject - AWS Observability Infrastructure",
+    description:
+      "Built a fully observable AWS infrastructure using CloudFormation with public/private subnets, NAT Gateway, and security groups. Deployed a FastAPI application behind an ALB with ASG. Configured CloudWatch logs/metrics, AWS X-Ray distributed tracing, and performed load testing with k6.",
+    technologies: [
+      "AWS (CloudFormation, CloudWatch, X-Ray, EC2, ASG, ALB, VPC)",
+      "FastAPI",
+      "PostgreSQL",
+      "k6",
+    ],
+  },
+  {
+    id: "p9",
+    title: "dbt + Airflow + Snowflake — Data Pipeline",
+    description:
+      "End-to-end ELT data pipeline orchestrated with Airflow. Leveraged Astronomer Cosmos to render dbt models dynamically as Airflow DAG tasks. Snowflake serves as the cloud data warehouse with staging, intermediate, and marts layers. Monitored data quality via dbt tests inside Docker constraints.",
+    technologies: [
+      "Apache Airflow",
+      "dbt",
+      "Snowflake",
+      "Docker",
+      "Python",
+      "SQL",
     ],
   },
 ];
@@ -266,30 +297,36 @@ export const certifications = [
     id: "cert-1",
     name: "Oracle Cloud Infrastructure DevOps Professional",
     issuer: "Oracle",
+    href: "https://catalog-education.oracle.com/ords/certview/sharebadge?id=6596D1CCED9102A946E02C1894BAAB437DA8EC14B92474E14E2AC075B6BF4BB9",
   },
   {
     id: "cert-2",
     name: "Oracle Java SE 17 Developer",
     issuer: "Oracle",
+    href: "https://catalog-education.oracle.com/ords/certview/sharebadge?id=85290B8332B2FCA98107230740EEA86956806E3DDE741A27A2C04C107B2D19DF",
   },
   {
     id: "cert-3",
     name: "AWS Cloud Practitioner",
     issuer: "Amazon Web Services",
+    href: "https://www.credly.com/badges/b4f9aeb6-1adf-45a8-92fe-8c9e220103e6/linked_in_profile",
   },
   {
     id: "cert-4",
     name: "Oracle Database SQL Associate",
     issuer: "Oracle",
+    href: "https://catalog-education.oracle.com/ords/certview/sharebadge?id=8C1E8787E40E9B5F55616382CEA154748C89A1F23BDBE4B1342844FE43FE024A",
   },
   {
     id: "cert-5",
     name: "OCI Generative AI Professional",
     issuer: "Oracle",
+    href: "https://catalog-education.oracle.com/ords/certview/sharebadge?id=6596D1CCED9102A946E02C1894BAAB43BBE58B8A4B39A350B762C1510F4785A5",
   },
   {
     id: "cert-6",
     name: "365 Data Science Python Programmer Bootcamp",
     issuer: "365 Data Science",
+    href: "https://learn.365datascience.com/certificates/CC-3B1C9406D2/",
   },
 ];
