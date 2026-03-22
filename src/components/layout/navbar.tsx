@@ -56,19 +56,17 @@ export function Navbar() {
       <div className="mx-auto flex h-[4.75rem] max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link
           href="/#hero"
-          className="group flex items-center gap-2 text-sm font-semibold tracking-tight text-foreground"
+          className="group flex items-baseline gap-0.5 transition-transform duration-300 hover:scale-105"
         >
-          <span className="flex size-8 items-center justify-center rounded-lg bg-gradient-to-br from-sky-500/20 to-cyan-500/10 text-xs font-bold text-sky-600 ring-1 ring-sky-500/25 transition group-hover:ring-sky-500/40 dark:text-sky-400">
-            {siteConfig.name
-              .split(" ")
-              .map((w) => w[0])
-              .join("")
-              .slice(0, 2)}
-          </span>
-          <span className="transition-opacity group-hover:opacity-90">
-            {siteConfig.name.split(" ")[0]}
-            <span className="text-muted-foreground">.</span>
-          </span>
+          <div className="relative flex select-none items-baseline font-serif text-[1.75rem] font-bold italic tracking-tighter">
+            <span className="bg-gradient-to-br from-foreground to-foreground/50 bg-clip-text text-transparent drop-shadow-sm">
+              O
+            </span>
+            <span className="-ml-1.5 bg-gradient-to-br from-primary to-primary/50 bg-clip-text text-transparent drop-shadow-sm transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:-rotate-6">
+              L
+            </span>
+            <span className="absolute -bottom-1 -right-2 size-2 rounded-full bg-primary ring-2 ring-background transition-transform duration-300 group-hover:scale-125" />
+          </div>
         </Link>
 
         <nav

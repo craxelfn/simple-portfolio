@@ -16,7 +16,7 @@ export const siteConfig = {
 
 export const aboutContent = {
   summary:
-    "Computer Science engineering student at the National School of Applied Sciences in Berrechid, specializing in software development and Cloud/DevOps.",
+    "I’m a Software Engineer specializing in designing high-performance applications and AI-driven solutions. With a strong foundation in modern software development, I bridge the gap between Data, AI, and DevOps to build, optimize, and deploy complex distributed architectures. I thrive on solving challenging technical problems and delivering scalable, impactful projects.",
   languages: "English, French, Arabic.",
   membership: "+300 LeetCode problems solved & +88 GitHub repository projects.",
 };
