@@ -21,15 +21,16 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Oussama Lakrafi — Software Engineer | Full Stack | Cloud & DevOps",
+    default: "Oussama Lakrafi — Software Engineer | Data Engineer | Cloud & DevOps",
     template: "%s · Oussama Lakrafi",
   },
   description:
-    "Oussama Lakrafi — Computer Science engineering student at ENSA Berrechid (Casablanca, Morocco). Full stack, cloud, and DevOps. Seeking a PFE internship.",
+    "Oussama Lakrafi — Computer Science engineering student at ENSA Berrechid (Casablanca, Morocco). Full stack, Data engineer, cloud, and DevOps.",
   keywords: [
     "Oussama Lakrafi",
     "software engineer",
     "full stack",
+    "data engineer",
     "DevOps",
     "cloud",
     "Next.js",
@@ -45,13 +46,13 @@ export const metadata: Metadata = {
     siteName: "Oussama Lakrafi",
     title: "Oussama Lakrafi — Software Engineer | Data engineer | Cloud & DevOps",
     description:
-      "Computer Science engineering student at ENSA Berrechid. Full stack, cloud, and DevOps.",
+      "Computer Science engineering student at ENSA Berrechid. Full stack, Data engineer, cloud, and DevOps.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Oussama Lakrafi — Software Engineer | Full Stack | Cloud & DevOps",
+    title: "Oussama Lakrafi — Software Engineer | Data Engineer | Cloud & DevOps",
     description:
-      "Computer Science engineering student at ENSA Berrechid. Full stack, cloud, and DevOps.",
+      "Computer Science engineering student at ENSA Berrechid. Full stack, Data engineer, cloud, and DevOps.",
   },
   robots: {
     index: true,
