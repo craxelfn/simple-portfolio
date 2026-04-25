@@ -86,6 +86,14 @@ export type ExperienceItem = {
 
 export const experience: ExperienceItem[] = [
   {
+    id: "exp-5",
+    role: "Research Assistant Intern",
+    company: "Oracle",
+    period: "Apr 1, 2026 — Present",
+    summary: "",
+    highlights: [],
+  },
+  {
     id: "exp-1",
     role: "Software Engineer / DevOps Intern",
     company: "Marketing Confort",

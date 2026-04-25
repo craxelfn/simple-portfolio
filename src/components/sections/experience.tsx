@@ -120,17 +120,19 @@ function ExperienceCard({ job }: { job: (typeof experience)[number] }) {
       {job.summary ? (
         <p className="relative mt-3 text-sm leading-relaxed text-muted-foreground">{job.summary}</p>
       ) : null}
-      <ul className="relative mt-5 space-y-2.5 border-t border-border/60 pt-5">
-        {job.highlights.map((h) => (
-          <li key={h} className="flex gap-3 text-sm leading-relaxed text-foreground/90">
-            <span
-              className="mt-2 size-1.5 shrink-0 rounded-full bg-gradient-to-br from-sky-500 to-cyan-500"
-              aria-hidden
-            />
-            <span>{h}</span>
-          </li>
-        ))}
-      </ul>
+      {job.highlights.length > 0 ? (
+        <ul className="relative mt-5 space-y-2.5 border-t border-border/60 pt-5">
+          {job.highlights.map((h) => (
+            <li key={h} className="flex gap-3 text-sm leading-relaxed text-foreground/90">
+              <span
+                className="mt-2 size-1.5 shrink-0 rounded-full bg-gradient-to-br from-sky-500 to-cyan-500"
+                aria-hidden
+              />
+              <span>{h}</span>
+            </li>
+          ))}
+        </ul>
+      ) : null}
     </div>
   );
 }
