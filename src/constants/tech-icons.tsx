@@ -1,6 +1,19 @@
 "use client";
 
-import type { IconType } from "react-icons/lib";
+import {
+  BarChart3,
+  Bot,
+  Boxes,
+  Cloud,
+  GitBranch,
+  Infinity as InfinityIcon,
+  Layers,
+  Plug,
+  ShieldCheck,
+  Sparkles,
+  Triangle,
+} from "lucide-react";
+import type { ComponentType } from "react";
 import { FaAws, FaMicrosoft } from "react-icons/fa6";
 import {
   SiAnsible,
@@ -51,12 +64,38 @@ import {
   SiK6,
   SiVercel,
   SiMqtt,
+  SiModelcontextprotocol,
+  SiJira,
+  SiLaravel,
+  SiSonatype,
+  SiSpring,
 } from "react-icons/si";
 import { TbBrandReactNative } from "react-icons/tb";
 
 import { cn } from "@/lib/utils";
 
-export const TECH_ICONS: Record<string, IconType> = {
+type LogoIcon = ComponentType<{ className?: string; color?: string; "aria-hidden"?: boolean }>;
+
+export const TECH_ICONS: Record<string, LogoIcon> = {
+  "Oracle AI Data Platform": Sparkles,
+  "Oracle Analytics Cloud": BarChart3,
+  OCI: Cloud,
+  "Delta Lake": Triangle,
+  "Medallion Architecture": Layers,
+  "Data Quality": ShieldCheck,
+  "Agentic AI": Bot,
+  MCP: SiModelcontextprotocol,
+  "Harness Engineering": Plug,
+  "CI/CD": InfinityIcon,
+  Nexus: SiSonatype,
+  JIRA: SiJira,
+  GitOps: GitBranch,
+  "Spring Cloud": SiSpring,
+  GitLab: SiGitlab,
+  Microservices: Boxes,
+  "Amazon Web Services": FaAws,
+  Laravel: SiLaravel,
+  "React.js": SiReact,
   Java: SiOpenjdk,
   JavaScript: SiJavascript,
   Python: SiPython,
@@ -124,6 +163,24 @@ export const TECH_ICONS: Record<string, IconType> = {
 };
 
 export const TECH_COLORS: Record<string, string> = {
+  "Oracle AI Data Platform": "#C74634",
+  "Oracle Analytics Cloud": "#C74634",
+  OCI: "#C74634",
+  "Delta Lake": "#00ADD4",
+  "Medallion Architecture": "#CD7F32",
+  "Data Quality": "#10B981",
+  "Agentic AI": "#8B5CF6",
+  "Harness Engineering": "#F59E0B",
+  "CI/CD": "#38BDF8",
+  Nexus: "#1B9E77",
+  JIRA: "#0052CC",
+  GitOps: "#EF7B4D",
+  "Spring Cloud": "#6DB33F",
+  GitLab: "#FC6D26",
+  Microservices: "#8B5CF6",
+  "Amazon Web Services": "#FF9900",
+  Laravel: "#FF2D20",
+  "React.js": "#61DAFB",
   Java: "#ED8B00",
   JavaScript: "#F7DF1E",
   Python: "#3776AB",

@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 
+import { MotionProvider } from "@/components/motion/motion-provider";
 import { LenisProvider } from "@/components/providers/lenis-provider";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 
@@ -18,25 +19,26 @@ const geistMono = Geist_Mono({
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
 
+const title = "Oussama Lakrafi — Forward Deployed Engineer @ Oracle";
+const description =
+  "Forward Deployed Engineer at Oracle with expertise in AI engineering, data platforms, and solutions architecture. Based in Casablanca, Morocco.";
+
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: {
-    default: "Oussama Lakrafi — Software Engineer | Data Engineer | Cloud & DevOps",
-    template: "%s · Oussama Lakrafi",
-  },
-  description:
-    "Oussama Lakrafi — Computer Science engineering student at ENSA Berrechid (Casablanca, Morocco). Full stack, Data engineer, cloud, and DevOps.",
+  title: { default: title, template: "%s · Oussama Lakrafi" },
+  description,
   keywords: [
     "Oussama Lakrafi",
-    "software engineer",
-    "full stack",
-    "data engineer",
-    "DevOps",
-    "cloud",
-    "Next.js",
-    "React",
+    "Forward Deployed Engineer",
+    "Oracle",
+    "Oracle AI Data Platform",
+    "AI engineering",
+    "data engineering",
+    "AI agents",
+    "MLOps",
+    "solutions architecture",
+    "Casablanca",
     "Morocco",
-    "ENSA Berrechid",
   ],
   authors: [{ name: "Oussama Lakrafi" }],
   openGraph: {
@@ -44,20 +46,11 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: siteUrl,
     siteName: "Oussama Lakrafi",
-    title: "Oussama Lakrafi — Software Engineer | Data engineer | Cloud & DevOps",
-    description:
-      "Computer Science engineering student at ENSA Berrechid. Full stack, Data engineer, cloud, and DevOps.",
+    title,
+    description,
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "Oussama Lakrafi — Software Engineer | Data Engineer | Cloud & DevOps",
-    description:
-      "Computer Science engineering student at ENSA Berrechid. Full stack, Data engineer, cloud, and DevOps.",
-  },
-  robots: {
-    index: true,
-    follow: true,
-  },
+  twitter: { card: "summary_large_image", title, description },
+  robots: { index: true, follow: true },
 };
 
 export const viewport: Viewport = {
@@ -82,7 +75,9 @@ export default function RootLayout({
       >
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
         <ThemeProvider>
-          <LenisProvider>{children}</LenisProvider>
+          <MotionProvider>
+            <LenisProvider>{children}</LenisProvider>
+          </MotionProvider>
         </ThemeProvider>
       </body>
     </html>

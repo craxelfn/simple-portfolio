@@ -22,6 +22,32 @@ type ThemeContextValue = {
 
 const ThemeContext = createContext<ThemeContextValue | null>(null);
 
+const NO_TRANSITIONS_CSS = "*,*::before,*::after{transition:none!important}";
+
+/**
+ * Hover transitions (transition-colors etc.) would otherwise animate the theme
+ * change too, leaving some elements mid-fade while the rest has switched.
+ * Disable them for the frame in which the theme class flips.
+ */
+function applyTheme(resolved: "light" | "dark") {
+  const root = document.documentElement;
+  const style = document.createElement("style");
+  style.appendChild(document.createTextNode(NO_TRANSITIONS_CSS));
+  document.head.appendChild(style);
+
+  root.classList.toggle("dark", resolved === "dark");
+  root.style.colorScheme = resolved;
+
+  // Force a style recalc while transitions are off, then restore them.
+  void window.getComputedStyle(document.body).opacity;
+  window.setTimeout(() => style.remove(), 1);
+}
+
+function resolve(theme: Theme): "light" | "dark" {
+  if (theme !== "system") return theme;
+  return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+}
+
 export function useTheme() {
   const ctx = useContext(ThemeContext);
   if (!ctx) {
@@ -65,11 +91,13 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     if (!hydrated) return;
     const root = document.documentElement;
-    root.classList.toggle("dark", resolvedTheme === "dark");
-    root.style.colorScheme = resolvedTheme === "dark" ? "dark" : "light";
+    if (root.classList.contains("dark") === (resolvedTheme === "dark")) return;
+    applyTheme(resolvedTheme);
   }, [resolvedTheme, hydrated]);
 
   const setTheme = useCallback((next: Theme) => {
+    // Apply synchronously so a view transition captures the finished new theme.
+    applyTheme(resolve(next));
     setThemeState(next);
     try {
       localStorage.setItem(STORAGE_KEY, next);

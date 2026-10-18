@@ -1,4 +1,7 @@
 import { Footer } from "@/components/layout/footer";
+import { BackToTop } from "@/components/motion/back-to-top";
+import { CursorFollower } from "@/components/motion/cursor-follower";
+import { ScrollProgress } from "@/components/motion/scroll-progress";
 import { Navbar } from "@/components/layout/navbar";
 import { About } from "@/components/sections/about";
 import { Certifications } from "@/components/sections/certifications";
@@ -12,6 +15,8 @@ import { Skills } from "@/components/sections/skills";
 export default function Home() {
   return (
     <>
+      <ScrollProgress />
+      <CursorFollower />
       <Navbar />
       <main className="flex-1">
         <Hero />
@@ -24,6 +29,7 @@ export default function Home() {
         <Contact />
       </main>
       <Footer />
+      <BackToTop />
     </>
   );
 }

@@ -1,65 +1,52 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { GraduationCap } from "lucide-react";
+import { CalendarRange, GraduationCap } from "lucide-react";
 
 import { education } from "@/constants/portfolio";
-import { staggerContainer } from "@/lib/motion";
 
-import { ScrollReveal } from "../motion/scroll-reveal";
+import { SectionHeading } from "../motion/section-heading";
+import { TiltCard } from "../motion/tilt-card";
 
 export function Education() {
   return (
-    <section
-      id="education"
-      className="scroll-mt-24 border-b border-border/60 py-24 sm:py-28"
-    >
+    <section id="education" className="scroll-mt-24 overflow-x-clip border-b border-border/60 py-24 sm:py-28">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        <ScrollReveal>
-          <p className="text-sm font-medium uppercase tracking-[0.2em] text-muted-foreground">
-            Education
-          </p>
-          <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
-            Academic background
-          </h2>
-        </ScrollReveal>
+        <SectionHeading eyebrow="Education" title="Academic background" />
 
-        <motion.ul
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-10%" }}
-          className="mt-12 space-y-6"
-        >
+        <ul className="mt-12 space-y-6">
           {education.map((edu, i) => (
             <motion.li
               key={edu.id}
-              variants={{
-                hidden: { opacity: 0, y: 16 },
-                visible: {
-                  opacity: 1,
-                  y: 0,
-                  transition: { duration: 0.45, delay: i * 0.06, ease: [0.22, 1, 0.36, 1] },
-                },
-              }}
-              className="flex flex-col gap-3 rounded-xl border border-border/80 bg-card/50 p-6 transition-colors hover:border-foreground/15 sm:flex-row sm:items-start sm:justify-between"
+              initial={{ opacity: 0, x: -60 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-10%" }}
+              transition={{ type: "spring", stiffness: 90, damping: 17, delay: i * 0.12 }}
             >
-              <div className="flex gap-4">
-                <div className="flex size-11 shrink-0 items-center justify-center rounded-lg border border-border bg-background">
-                  <GraduationCap className="size-5 text-muted-foreground" />
+              <TiltCard
+                maxTilt={3}
+                className="rounded-xl border border-border/80 bg-card/50 p-6 shadow-sm backdrop-blur-sm transition-[border-color,box-shadow] duration-300 hover:border-sky-500/40 hover:shadow-lg"
+              >
+                <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+                  <div className="flex gap-4">
+                    <div className="flex size-12 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-sky-500 to-violet-500 text-white shadow-lg shadow-sky-500/20 transition-transform duration-500 group-hover/tilt:-rotate-12 group-hover/tilt:scale-110">
+                      <GraduationCap className="size-6" aria-hidden />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-semibold tracking-tight">{edu.degree}</h3>
+                      <p className="text-sm font-medium text-muted-foreground">{edu.school}</p>
+                      {edu.detail ? <p className="mt-2 max-w-xl text-sm text-muted-foreground">{edu.detail}</p> : null}
+                    </div>
+                  </div>
+                  <span className="inline-flex shrink-0 items-center gap-1.5 self-start rounded-full border border-border/80 bg-background/90 px-3 py-1 text-xs font-medium text-muted-foreground">
+                    <CalendarRange className="size-3.5" aria-hidden />
+                    {edu.period}
+                  </span>
                 </div>
-                <div>
-                  <h3 className="text-lg font-semibold tracking-tight">{edu.degree}</h3>
-                  <p className="text-sm font-medium text-muted-foreground">{edu.school}</p>
-                  {edu.detail ? (
-                    <p className="mt-2 max-w-xl text-sm text-muted-foreground">{edu.detail}</p>
-                  ) : null}
-                </div>
-              </div>
-              <p className="text-sm text-muted-foreground sm:text-right">{edu.period}</p>
+              </TiltCard>
             </motion.li>
           ))}
-        </motion.ul>
+        </ul>
       </div>
     </section>
   );
